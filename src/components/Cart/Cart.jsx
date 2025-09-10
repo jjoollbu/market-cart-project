@@ -1,6 +1,6 @@
 import React from "react";
 
-const Cart = ({ cart, onIncrement, onDecrement, onRemove }) => {
+const Cart = ({ cart, onIncrement, onDecrement, onRemove, onClear }) => {
     const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0)
 
     return (
@@ -22,6 +22,7 @@ const Cart = ({ cart, onIncrement, onDecrement, onRemove }) => {
                         </div>
                     ))}
                     <h3>Total: R${total.toFixed(2)}</h3>
+                    <button onClick={onClear}>Limpar Carrinho</button>
                 </div>
 
             )}

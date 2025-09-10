@@ -48,6 +48,10 @@ function App() {
     setCart(prevCart => prevCart.filter(item => item.id !== id))
   }
 
+  const handleClearCart = () => {
+    setCart([])
+  }
+
   return (
     <div>
       <ProductList products={initialProducts} onAdd={handleAddCart} />
@@ -56,6 +60,7 @@ function App() {
         onIncrement={handleIncrement}
         onDecrement={handleDecrement}
         onRemove={handleRemove}
+        onClear={handleClearCart}
       />
     </div>
   );
