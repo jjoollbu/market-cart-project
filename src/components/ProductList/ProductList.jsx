@@ -18,9 +18,17 @@ const ProductList = ({ products, onAdd }) => {
                 <div className="product" key={product.id}>
                     <h3>{product.name}</h3>
                     <p>Preço: R$ {product.price.toFixed(2)}</p>
-                    <button onClick={() => onAdd(product)}>Adicionar</button>
-                </div>
+                    <div>
 
+                        <input
+                            type="number"
+                            min="1"
+                            value={quantities[product.id] || 1}
+                            onChange={(e) => handleQuantityChange(product.id, e.target.value)}
+                        />
+                        <button onClick={() => onAdd(product, quantities[product.id] || 1)}>Adicionar</button>
+                    </div>
+                </div>
             ))}
         </div>
     )
