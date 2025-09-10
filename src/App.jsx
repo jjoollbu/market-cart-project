@@ -44,10 +44,19 @@ function App() {
     );
   };
 
+  const handleRemove = (id) => {
+    setCart(prevCart => prevCart.filter(item => item.id !== id))
+  }
+
   return (
     <div>
       <ProductList products={initialProducts} onAdd={handleAddCart} />
-      <Cart cart={cart} onIncrement={handleIncrement} onDecrement={handleDecrement} />
+      <Cart
+        cart={cart}
+        onIncrement={handleIncrement}
+        onDecrement={handleDecrement}
+        onRemove={handleRemove}
+      />
     </div>
   );
 }
