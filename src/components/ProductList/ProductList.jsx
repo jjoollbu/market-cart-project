@@ -4,7 +4,7 @@ const ProductList = ({ products, onAdd }) => {
     const [quantities, setQuantities] = useState({});
     const handleQuantityChange = (id, value) => {
         setQuantities(prev => ({
-            ...prev, [id]: Math.max(1, parseint(value) || 1)
+            ...prev, [id]: Math.max(1, parseInt(value) || 1)
         }));
     };
 
@@ -16,7 +16,7 @@ const ProductList = ({ products, onAdd }) => {
             <h2 className="product-title">Produtos</h2>
             {products.map(product => (
                 <div className="product" key={product.id}>
-                    <h3>{product.bane}</h3>
+                    <h3>{product.name}</h3>
                     <p>Preço: R$ {product.price.toFixed(2)}</p>
                     <button onClick={() => onAdd(product)}>Adicionar</button>
                 </div>

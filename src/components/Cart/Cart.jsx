@@ -14,7 +14,7 @@ const Cart = ({ cart }) => {
                         <div key={item.id}>
                             <h3>{item.name}</h3>
                             <p>Quantidade: {item.quantity}</p>
-                            <p>Subtotal: R$ {(item.price * item.quantity).toFixed}</p>
+                            <p>Subtotal: R$ {(item.price * item.quantity).toFixed(2)}</p>
                         </div>
                     ))}
                     <h3>Total: R${total.toFixed(2)}</h3>
