@@ -1,14 +1,15 @@
-import { useState } from 'react'
+import { useState } from 'react';
 import React from 'react';
-import './App.css'
+import './App.css';
 import ProductList from './components/ProductList/ProductList';
 import Cart from './components/Cart/Cart';
 
 const initialProducts = [
   { id: 1, name: "Café", price: 30 },
   { id: 2, name: "Feijão", price: 22.50 },
-  { id: 3, name: "Feijão", price: 10.25 }
-]
+  { id: 3, name: "Arroz", price: 10.25 } 
+];
+
 function App() {
   const [cart, setCart] = useState([]);
 
@@ -25,7 +26,6 @@ function App() {
       return [...prevCart, { ...product, quantity }];
     });
   };
-
 
   const handleIncrement = (id) => {
     setCart(prevCart =>
@@ -46,15 +46,15 @@ function App() {
   };
 
   const handleRemove = (id) => {
-    setCart(prevCart => prevCart.filter(item => item.id !== id))
-  }
+    setCart(prevCart => prevCart.filter(item => item.id !== id));
+  };
 
   const handleClearCart = () => {
-    setCart([])
-  }
+    setCart([]);
+  };
 
   return (
-    <div>
+    <div className="app-container">
       <ProductList products={initialProducts} onAdd={handleAddCart} />
       <Cart
         cart={cart}
